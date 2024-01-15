@@ -18,7 +18,7 @@ public struct SifcaWidget: View {
     @State var showDots = true
     @State var dialogIndex = -1
 
-    public   var body: some View {
+    public var body: some View {
         ZStack {
             if showDots {
                 WidgetDots(
