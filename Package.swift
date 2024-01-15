@@ -1,32 +1,23 @@
-//
-//  File.swift
-//  iossifcawidget
-//
-//  Created by Diktup LLC on 15/1/2024.
-//
+// swift-tools-version: 5.9
+// The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
 let package = Package(
-    name: "swift-algorithms",
+    name: "iossifcawidget",
     products: [
+        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "Algorithms",
-            targets: ["Algorithms"]),
-    ],
-    dependencies: [
-        .package(url: "https://github.com/globulus/swiftui-gif", from: "1.0.1"),
-        .package(url: "https://github.com/dmytro-anokhin/url-image", from: "3.1.1"),
-        
+            name: "iossifcawidget",
+            targets: ["iossifcawidget"]),
     ],
     targets: [
+        // Targets are the basic building blocks of a package, defining a module or a test suite.
+        // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "Algorithms",
-            dependencies: [
-              .product(name: "RealModule", package: "swift-numerics"),
-            ]),
+            name: "iossifcawidget"),
         .testTarget(
-            name: "SwiftAlgorithmsTests",
-            dependencies: ["Algorithms"]),
+            name: "iossifcawidgetTests",
+            dependencies: ["iossifcawidget"]),
     ]
 )
