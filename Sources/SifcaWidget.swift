@@ -17,6 +17,8 @@ public struct SifcaWidget: View {
     @State var isRight = false
     @State var showDots = true
     @State var dialogIndex = -1
+    
+    public init() {} // Add a public initializer if needed
 
     public var body: some View {
         ZStack {

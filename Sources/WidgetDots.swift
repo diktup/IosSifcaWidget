@@ -26,6 +26,9 @@ public struct WidgetDots: View {
         "lord-icon-eye",
         "lord-icon-link",
     ]
+        public init() {} // Add a public initializer if needed
+
+
   public   var body: some View {
         ZStack {
             ForEach(imageList.indices, id: \.self) { index in

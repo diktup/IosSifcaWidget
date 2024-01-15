@@ -37,6 +37,9 @@ public struct WalletDialog: View {
         "🌟 Discounts on Future Purchases: Enjoy exclusive discounts on your next shopping spree. Your loyalty points can be redeemed for instant savings at checkout.",
         "💳 Gift Cards or Vouchers: Convert your loyalty points into gift cards or vouchers, giving you the flexibility to use them whenever you'd like.",
     ]
+        public init() {} // Add a public initializer if needed
+
+
    public  var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {

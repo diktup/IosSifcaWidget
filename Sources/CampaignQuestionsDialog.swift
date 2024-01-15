@@ -53,6 +53,9 @@ public struct CampaignQuestionsDialog: View {
             ],
         ],
     ]
+        public init() {} // Add a public initializer if needed
+
+
    public  var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {

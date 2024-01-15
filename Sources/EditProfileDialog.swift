@@ -25,6 +25,8 @@ public struct EditProfileDialog: View {
     let appColor = Color.blue
     var themeList = ["dark", "light", "system", "sameAsTheMainApp"]
     var localeList = ["english", "french", "arabic"]
+   
+    public init() {} // Add a public initializer if needed
 
    public  var body: some View {
         GeometryReader { geometry in

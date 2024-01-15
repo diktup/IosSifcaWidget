@@ -17,6 +17,8 @@ public struct NotificationsDialog: View {
         ["name": "Exclusive Offer for Gold Members", "body": "As a Gold member, unlock a special 20% discount on your next purchase. Limited-time offer, redeem now!"],
         ["name": "Your Points Balance", "body": "Check out your current points balance. You're just a few points away from unlocking your next rewards"],
     ]
+    public init() {} // Add a public initializer if needed
+
 
     public var body: some View {
         ScrollView {

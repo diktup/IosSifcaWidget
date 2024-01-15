@@ -11,6 +11,8 @@ public struct ProfileDialog: View {
     @Binding var dialogIndex: Int
     @State var isPopUpVisible = false
 
+    public init() {} // Add a public initializer if needed
+
    public  var body: some View {
         ZStack {
             ScrollView {
