@@ -13,15 +13,15 @@ public struct EditProfileDialog: View {
     @Binding var isPopUpVisible: Bool
 
     
-    @StateObject private var languageController = LanguageController()
-    @StateObject private var themeManager = ThemeManager()
-    @State private var localeRadioIndex: Int? = nil
-    @State private var themeRadioIndex: Int? = nil
-    @State private var genderRadioIndex: Int? = 0
+    @StateObject public var languageController = LanguageController()
+    @StateObject public var themeManager = ThemeManager()
+    @State public var localeRadioIndex: Int? = nil
+    @State public var themeRadioIndex: Int? = nil
+    @State public var genderRadioIndex: Int? = 0
     @Environment(\.colorScheme) var colorScheme
-    @State private var checkFirstname = ""
-    @State private var checkLastname = ""
-    @State private var tabIndex = 0
+    @State public var checkFirstname = ""
+    @State public var checkLastname = ""
+    @State public var tabIndex = 0
     let appColor = Color.blue
     var themeList = ["dark", "light", "system", "sameAsTheMainApp"]
     var localeList = ["english", "french", "arabic"]

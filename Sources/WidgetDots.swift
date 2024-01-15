@@ -14,8 +14,8 @@ public struct WidgetDots: View {
     @Binding var showDots: Bool
     @Binding var dialogIndex: Int
 
-    @EnvironmentObject private var animatedWidgetController: AnimatedWidgetController
-    @State private var isShowingDialog = false
+    @EnvironmentObject public var animatedWidgetController: AnimatedWidgetController
+    @State public var isShowingDialog = false
 
     let imageList = [
         "lord-icon-money",

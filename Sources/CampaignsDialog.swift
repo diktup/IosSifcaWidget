@@ -10,7 +10,7 @@ import SwiftUIGIF
 
 public struct CampaignsDialog: View {
     @Binding var dialogIndex: Int
-    @State private var searchText = ""
+    @State public var searchText = ""
     @State var isPopUpVisible = false
 
     let campaignList = [

@@ -11,8 +11,8 @@ import SwiftUIGIF
 public struct MessageGroupDialog: View {
     @Binding var dialogIndex: Int
  
-    @State private var checkMessage = ""
-    @State private var messageList: [String] = [
+    @State public var checkMessage = ""
+    @State public var messageList: [String] = [
         "Hi there! I'm excited about your loyalty program. How does it work?",
         "Welcome! Our loyalty program rewards you for every purchase. Earn points and redeem them for discounts or exclusive offers.",
         "Sounds great! How do I sign up?",

@@ -13,8 +13,8 @@ public struct WalletDialog: View {
 
     let subTabList = ["Activities", "Redeem", "Transactions"]
     let tabList = ["Wallet", "Reputation"]
-    @State private var subTabIndex = 0
-    @State private var tabIndex = 0
+    @State public var subTabIndex = 0
+    @State public var tabIndex = 0
 
     let activitiesList = [
         ["name": "Share Facebok Product", "body": "Remaining time 09:03:32"],

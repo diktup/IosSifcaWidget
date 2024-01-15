@@ -8,10 +8,10 @@
 import SwiftUI
 
 public struct SifcaAnimatedWidget<Content: View>: View {
-    @EnvironmentObject private var animatedWidgetController: AnimatedWidgetController
-    @State private var shakeAmount: CGFloat = 0
+    @EnvironmentObject public var animatedWidgetController: AnimatedWidgetController
+    @State public var shakeAmount: CGFloat = 0
 
-    private func getOffset(controller: AnimatedWidgetController) -> CGSize {
+    public func getOffset(controller: AnimatedWidgetController) -> CGSize {
         if animatedWidgetController.isAnimated {
             let randomX = CGFloat.random(in: 0.0 ... 1.0) * 6 - 1
             let randomY = CGFloat.random(in: 0.0 ... 1.0) * 6 - 1

@@ -11,10 +11,10 @@ import SwiftUIGIF
 public struct CampaignQuestionsDialog: View {
     @Binding var isPopUpVisible: Bool
 
-    @State private var searchText = ""
-    @State private var widgetIndex = 0
-    @State private var question2 = 0
-    @State private var question1: Int? = nil
+    @State public var searchText = ""
+    @State public var widgetIndex = 0
+    @State public var question2 = 0
+    @State public var question1: Int? = nil
 
     let questionList = [
         "Poor",
