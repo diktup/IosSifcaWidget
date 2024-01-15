@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftUIGIF
 
-struct SifcaWidget: View {
+public struct SifcaWidget: View {
     @StateObject private var animatedWidgetController = AnimatedWidgetController()
     @StateObject private var languageController = LanguageController()
     @StateObject private var themeManager = ThemeManager()
@@ -18,7 +18,7 @@ struct SifcaWidget: View {
     @State var showDots = true
     @State var dialogIndex = -1
 
-    var body: some View {
+    public   var body: some View {
         ZStack {
             if showDots {
                 WidgetDots(

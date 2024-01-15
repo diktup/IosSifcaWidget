@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SifcaAnimatedWidget<Content: View>: View {
+public struct SifcaAnimatedWidget<Content: View>: View {
     @EnvironmentObject private var animatedWidgetController: AnimatedWidgetController
     @State private var shakeAmount: CGFloat = 0
  
@@ -23,7 +23,7 @@ struct SifcaAnimatedWidget<Content: View>: View {
 
     let content: () -> Content
 
-    var body: some View {
+    public    var body: some View {
         if animatedWidgetController.isAnimated {
             content()
                 .offset(x: shakeAmount, y: shakeAmount * 0.2)
