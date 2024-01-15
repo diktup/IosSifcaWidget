@@ -8,10 +8,10 @@
 import SwiftUI
 import SwiftUIGIF
 
-struct SignOutDialog: View {
+public struct SignOutDialog: View {
     @Binding var dialogIndex: Int
  
-    var body: some View {
+  public   var body: some View {
         VStack {
             HStack {
                 Text("Sign out")

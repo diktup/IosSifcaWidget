@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftUIGIF
 
-struct WidgetDots: View {
+public struct WidgetDots: View {
     @Binding var position: CGPoint
     @Binding var isRight: Bool
     @Binding var showDots: Bool
@@ -26,7 +26,7 @@ struct WidgetDots: View {
         "lord-icon-eye",
         "lord-icon-link",
     ]
-    var body: some View {
+  public   var body: some View {
         ZStack {
             ForEach(imageList.indices, id: \.self) { index in
                 let angle = Double(index) * (Double.pi / 6) * 1.1 - 1.75

@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftUIGIF
 
-struct EditProfileDialog: View {
+public struct EditProfileDialog: View {
     
     @Binding var isPopUpVisible: Bool
 
@@ -26,7 +26,7 @@ struct EditProfileDialog: View {
     var themeList = ["dark", "light", "system", "sameAsTheMainApp"]
     var localeList = ["english", "french", "arabic"]
 
-    var body: some View {
+   public  var body: some View {
         GeometryReader { geometry in
 
             var width = CGFloat.zero

@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftUIGIF
 
-struct CampaignsDialog: View {
+public struct CampaignsDialog: View {
     @Binding var dialogIndex: Int
     @State private var searchText = ""
     @State var isPopUpVisible = false
@@ -46,7 +46,7 @@ struct CampaignsDialog: View {
         ],
     ]
 
-    var body: some View {
+    public var body: some View {
         ZStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 16.0) {

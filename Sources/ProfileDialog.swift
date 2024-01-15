@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct ProfileDialog: View {
+public struct ProfileDialog: View {
     @Binding var dialogIndex: Int
     @State var isPopUpVisible = false
 
-    var body: some View {
+   public  var body: some View {
         ZStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {

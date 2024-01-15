@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftUIGIF
 
-struct NotificationsDialog: View {
+public struct NotificationsDialog: View {
     @Binding var dialogIndex: Int
 
     let notificationList = [
@@ -18,7 +18,7 @@ struct NotificationsDialog: View {
         ["name": "Your Points Balance", "body": "Check out your current points balance. You're just a few points away from unlocking your next rewards"],
     ]
 
-    var body: some View {
+    public var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
                 HStack {

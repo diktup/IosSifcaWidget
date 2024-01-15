@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftUIGIF
 
-struct CampaignQuestionsDialog: View {
+public struct CampaignQuestionsDialog: View {
     @Binding var isPopUpVisible: Bool
 
     @State private var searchText = ""
@@ -53,7 +53,7 @@ struct CampaignQuestionsDialog: View {
             ],
         ],
     ]
-    var body: some View {
+   public  var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
                 HStack {

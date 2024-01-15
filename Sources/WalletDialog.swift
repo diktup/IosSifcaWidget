@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftUIGIF
 
-struct WalletDialog: View {
+public struct WalletDialog: View {
     @Binding var dialogIndex: Int
 
     let subTabList = ["Activities", "Redeem", "Transactions"]
@@ -37,7 +37,7 @@ struct WalletDialog: View {
         "🌟 Discounts on Future Purchases: Enjoy exclusive discounts on your next shopping spree. Your loyalty points can be redeemed for instant savings at checkout.",
         "💳 Gift Cards or Vouchers: Convert your loyalty points into gift cards or vouchers, giving you the flexibility to use them whenever you'd like.",
     ]
-    var body: some View {
+   public  var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
                 HStack {

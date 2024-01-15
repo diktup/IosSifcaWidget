@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftUIGIF
 
-struct MessageGroupDialog: View {
+public struct MessageGroupDialog: View {
     @Binding var dialogIndex: Int
  
     @State private var checkMessage = ""
@@ -29,7 +29,7 @@ struct MessageGroupDialog: View {
         "We're thrilled to have you as part of our loyalty program! Happy shopping, and feel free to reach out if you have any more questions.",
     ]
 
-    var body: some View {
+   public  var body: some View {
         
         VStack(alignment: .leading, spacing: 16) {
             HStack {
