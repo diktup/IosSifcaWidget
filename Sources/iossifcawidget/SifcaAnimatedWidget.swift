@@ -10,18 +10,15 @@ import SwiftUI
 public struct SifcaAnimatedWidget<Content: View>: View {
     
     @EnvironmentObject public var animatedWidgetController: AnimatedWidgetController
-
-    @State public var shakeAmount: CGFloat = 0
-
+    @State private var shakeAmount: CGFloat = 0
+    
     let content: () -> Content
-
-    public init(content: @escaping () -> Content) {
+    
+    public init(@ViewBuilder content: @escaping () -> Content) {
         self.content = content
-        shakeAmount = 0
     }
-
+   
     public var body: some View {
-
         if animatedWidgetController.isAnimated {
             content()
                 .offset(x: shakeAmount, y: shakeAmount * 0.2)
@@ -32,7 +29,7 @@ public struct SifcaAnimatedWidget<Content: View>: View {
                     }
                 }
                 .onDisappear {
-
+                    // Handle any cleanup on disappear
                 }
         } else {
             content()
