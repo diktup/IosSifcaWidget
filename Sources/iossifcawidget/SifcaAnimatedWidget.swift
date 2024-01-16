@@ -19,7 +19,7 @@ public struct SifcaAnimatedWidget<Content: View>: View {
 
     public var body: some View {
         content()
-            .modifier(ConditionalAnimationModifier(isAnimated: animatedWidgetController.isAnimated))
+            .modifier(ConditionalAnimationModifier(isAnimated: animatedWidgetController.isAnimated, shakeAmount: shakeAmount))
             .onAppear {
                 Timer.scheduledTimer(withTimeInterval: 0.4, repeats: true) { _ in
                     self.shakeAmount = self.shakeAmount == 4 ? -4 : 4
@@ -33,6 +33,7 @@ public struct SifcaAnimatedWidget<Content: View>: View {
 
 struct ConditionalAnimationModifier: ViewModifier {
     let isAnimated: Bool
+    let shakeAmount: CGFloat
 
     func body(content: Content) -> some View {
         if isAnimated {
