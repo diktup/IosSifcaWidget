@@ -18,13 +18,13 @@ public struct WidgetDots: View {
     @State public var isShowingDialog = false
 
     let imageList = [
-        "lord-icon-money",
-        "lord-icon-profile",
-        "lord-icon-walkie-talkie",
-        "lord-icon-chat",
-        "lord-icon-joystick",
-        "lord-icon-eye",
-        "lord-icon-link",
+        "https://res.cloudinary.com/sifca/image/upload/v1703254268/flutter-mobile-widget/lord-icon-money.gif",
+        "lhttps://res.cloudinary.com/sifca/image/upload/v1703254270/flutter-mobile-widget/lord-icon-profile.gif",
+        "https://res.cloudinary.com/sifca/image/upload/v1703254272/flutter-mobile-widget/lord-icon-walkie-talkie.gif",
+        "https://res.cloudinary.com/sifca/image/upload/v1703254263/flutter-mobile-widget/lord-icon-chat.gif",
+        "https://res.cloudinary.com/sifca/image/upload/v1703254268/flutter-mobile-widget/lord-icon-joystick.gif",
+        "https://res.cloudinary.com/sifca/image/upload/v1703254263/flutter-mobile-widget/lord-icon-eye.gif",
+        "https://res.cloudinary.com/sifca/image/upload/v1703254270/flutter-mobile-widget/lord-icon-link.gif",
     ]
        
 
@@ -36,11 +36,13 @@ public struct WidgetDots: View {
                 let x = position.x + 80 * (isRight ? -cos(angle) : cos(angle))
                 let y = position.y + 80 * sin(angle)
                 ZStack {
+
+                    
                     Circle()
                         .fill(Color.white)
                         .frame(width: 34.0, height: 34.0)
                         .shadow(color: Color.black.opacity(0.8), radius: 4, x: 0, y: 0)
-                    GIFImage(name: imageList[index])
+                    GIFImage(data: URL(string: imageList[index])!)
                         .frame(width: 34.0, height: 34.0)
                         .clipShape(Circle())
                         .shadow(color: Color.black.opacity(0.8), radius: 4, x: 0, y: 0)
