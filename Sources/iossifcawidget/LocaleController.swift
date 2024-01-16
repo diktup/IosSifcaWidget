@@ -9,8 +9,8 @@ import Foundation
 import SwiftUI
 
 public class LanguageController: ObservableObject {
-    @Published var currentLanguage = "en"
-    @Published var layoutDirection: LayoutDirection = .leftToRight
+    @Published public var currentLanguage = "en"
+    @Published public var layoutDirection: LayoutDirection = .leftToRight
 }
 
 public class Localizer {

@@ -9,11 +9,11 @@ import SwiftUI
 
 
 public class ThemeManager: ObservableObject {
-    @Published var isDarkMode = true
-    @Published var isSystem = false
-    @Published var isMainApp = false
-    @Published var customFontName: String = "Rubik"
-    @Published var fontSize: CGFloat = 20
+    @Published public var isDarkMode = true
+    @Published public var isSystem = false
+    @Published public var isMainApp = false
+    @Published public var customFontName: String = "Rubik"
+    @Published public var fontSize: CGFloat = 20
 
  public    var textColor: Color {
         return isDarkMode ? .white : .black

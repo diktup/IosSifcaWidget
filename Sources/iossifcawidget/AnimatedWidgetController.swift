@@ -9,11 +9,11 @@ import Foundation
 import SwiftUI
 
 public class AnimatedWidgetController: ObservableObject {
-    @Published var isAnimated: Bool = false
+    @Published public var isAnimated: Bool = false
 }
 
 public class AnimatedWidgetManager {
-    static func toggleTheAnimation(controller: AnimatedWidgetController) {
+   public static func toggleTheAnimation(controller: AnimatedWidgetController) {
         controller.isAnimated.toggle()
     }
 }
