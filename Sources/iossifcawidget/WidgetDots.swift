@@ -41,20 +41,11 @@ public struct WidgetDots: View {
             .shadow(color: Color.black.opacity(0.8), radius: 4, x: 0, y: 0)
 
           GIFImageWithURL(url: URL(string: imageList[index])!)
-            .fill(Color.white)
+                
             .frame(width: 34.0, height: 34.0)
             .clipShape(Circle())
-            .shadow(color: Color.black.opacity(0.8), radius: 4, x: 0, y: 0)
 
-        }.gesture(
-          TapGesture()
-            .onEnded {
-              dialogIndex = index
-              if index == 5 {
-                AnimatedWidgetManager.toggleTheAnimation(controller: animatedWidgetController)
-              }
-            }
-        )
+        }
         .position(x: CGFloat(x), y: CGFloat(y))
         .gesture(
           TapGesture()
