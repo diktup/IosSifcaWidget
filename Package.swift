@@ -7,7 +7,7 @@ let package = Package(
     name: "iossifcawidget",
     defaultLocalization: "en", 
     platforms: [
-          .iOS(.v14)
+          .iOS(.v17)
       ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
