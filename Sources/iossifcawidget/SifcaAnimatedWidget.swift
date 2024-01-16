@@ -37,12 +37,12 @@ struct ConditionalAnimationModifier: ViewModifier {
 
     func body(content: Content) -> some View {
         if isAnimated {
-            return content
+            return AnyView(content
                 .offset(x: shakeAmount, y: shakeAmount * 0.2)
                 .animation(Animation.easeInOut(duration: 0.1).repeatForever())
-                .transition(.opacity)
+                .transition(.opacity))
         } else {
-            return content
+            return AnyView(content)
         }
     }
 }
