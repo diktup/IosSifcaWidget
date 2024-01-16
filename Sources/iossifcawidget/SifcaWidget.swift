@@ -18,14 +18,7 @@ public struct SifcaWidget: View {
     @State public var showDots = true
     @State public var dialogIndex = -1
 
-    public init(animatedWidgetController: AnimatedWidgetController = AnimatedWidgetController(), languageController: LanguageController = LanguageController(), themeManager: ThemeManager = ThemeManager(), verticalCenter: CGFloat, position: <#type#> = CGPoint(x: 100, y: 100), isRight: Bool = false, showDots: Bool = true, dialogIndex: Int = 1) {
     
-        self.verticalCenter = verticalCenter
-        self.position = position
-        self.isRight = isRight
-        self.showDots = showDots
-        self.dialogIndex = dialogIndex
-    }
     public var body: some View {
         ZStack {
             if showDots {
@@ -85,7 +78,4 @@ public struct SifcaWidget: View {
             .environmentObject(themeManager)
             .environmentObject(animatedWidgetController)
     }
-}
-#Preview{
-    SifcaWidget()
 }
