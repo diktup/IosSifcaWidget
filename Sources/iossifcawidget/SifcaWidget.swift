@@ -79,3 +79,6 @@ public struct SifcaWidget: View {
             .environmentObject(animatedWidgetController)
     }
 }
+#Preview{
+    SifcaWidget()
+}

@@ -4,27 +4,34 @@
 import PackageDescription
 
 let package = Package(
-    name: "iossifcawidget",
-    defaultLocalization: "en", 
-    platforms: [
-          .iOS(.v17)
+  name: "iossifcawidget",
+  defaultLocalization: "en",
+  platforms: [
+    .iOS(.v15)
+  ],
+  products: [
+    .library(
+      name: "iossifcawidget",
+      targets: ["iossifcawidget"])
+  ],
+  dependencies: [
+    .package(url: "https://github.com/globulus/swiftui-gif.git", from: "1.0.1"),
+    .package(url: "https://github.com/dmytro-anokhin/url-image", from: "3.1.1"),
+  ],
+  targets: [
+    .target(
+      name: "iossifcawidget",
+      dependencies: [
+        .product(name: "SwiftUIGIF", package: "swiftui-gif"),
+        .product(name: "URLImage", package: "url-image"),
+
       ],
-    products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
-        .library(
-            name: "iossifcawidget",
-            targets: ["iossifcawidget"]),
-    ],
-    targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
-      .target(
-            name: "iossifcawidget",
-            resources: [
-                .copy("Resources")
-            ]),
-        .testTarget(
-            name: "iossifcawidgetTests",
-            dependencies: ["iossifcawidget"]),
-    ]
+      resources: [
+        .copy("Resources")
+      ]
+    ),
+    .testTarget(
+      name: "iossifcawidgetTests",
+      dependencies: ["iossifcawidget"]),
+  ]
 )
