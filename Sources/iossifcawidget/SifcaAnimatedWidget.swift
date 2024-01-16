@@ -11,7 +11,7 @@ public struct SifcaAnimatedWidget<Content: View>: View {
     
     let content: () -> Content
     
-    @EnvironmentObject private var animatedWidgetController: AnimatedWidgetController
+    @StateObject private var animatedWidgetController = AnimatedWidgetController()
     @State private var shakeAmount: CGFloat = 0
  
    
@@ -21,21 +21,24 @@ public struct SifcaAnimatedWidget<Content: View>: View {
     }
 
     public var body: some View {
-        if animatedWidgetController.isAnimated {
-            content()
-                .offset(x: shakeAmount, y: shakeAmount * 0.2)
-                .animation(Animation.easeInOut(duration: 0.1).repeatForever())
-                .onAppear {
-                    Timer.scheduledTimer(withTimeInterval: 0.4, repeats: true) { _ in
-                        self.shakeAmount = self.shakeAmount == 4 ? -4 : 4
+ 
+            
+            
+            if animatedWidgetController.isAnimated {
+                content()
+                    .offset(x: shakeAmount, y: shakeAmount * 0.2)
+                    .animation(Animation.easeInOut(duration: 0.1).repeatForever())
+                    .onAppear {
+                        Timer.scheduledTimer(withTimeInterval: 0.4, repeats: true) { _ in
+                            self.shakeAmount = self.shakeAmount == 4 ? -4 : 4
+                        }
                     }
-                }
-                .onDisappear {
-                    // Handle any cleanup on disappear
-                }
-                .environmentObject(animatedWidgetController)
-        } else {
-            content()
-        }
-    }
+                    .onDisappear {
+                        // Handle any cleanup on disappear
+                    }
+                    .environmentObject(animatedWidgetController)
+            } else {
+                content().environmentObject(animatedWidgetController)
+            }
+     }
 }
