@@ -9,15 +9,17 @@ import SwiftUI
 
 public struct SifcaAnimatedWidget<Content: View>: View {
     
-    @EnvironmentObject public var animatedWidgetController: AnimatedWidgetController
-    @State private var shakeAmount: CGFloat = 0
-    
     let content: () -> Content
     
+    @StateObject public var animatedWidgetController: AnimatedWidgetController = AnimatedWidgetController()
+    @State private var shakeAmount: CGFloat = 0
+
+   
+
     public init(@ViewBuilder content: @escaping () -> Content) {
         self.content = content
     }
-   
+
     public var body: some View {
         if animatedWidgetController.isAnimated {
             content()
