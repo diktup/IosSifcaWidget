@@ -8,7 +8,7 @@
 import SwiftUI
 
 public struct SifcaAnimatedWidget<Content: View>: View {
-    @EnvironmentObject private(set) var animatedWidgetController: AnimatedWidgetController
+    @EnvironmentObject var animatedWidgetController: AnimatedWidgetController
 
     @State public var shakeAmount: CGFloat = 0
 
