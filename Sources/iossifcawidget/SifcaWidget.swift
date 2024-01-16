@@ -37,7 +37,7 @@ public struct SifcaWidget: View {
                 )
             }
 
-            Image("sifca-app-icon")
+            Image("sifca-app-icon", bundle: Bundle.module)
                 .resizable()
                 .frame(width: 80, height: 80)
                 .clipShape(Circle())
