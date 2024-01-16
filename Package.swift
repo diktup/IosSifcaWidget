@@ -7,7 +7,7 @@ let package = Package(
   name: "iossifcawidget",
   defaultLocalization: "en",
   platforms: [
-    .iOS(.v15)
+    .iOS(.v17)
   ],
   products: [
     .library(
