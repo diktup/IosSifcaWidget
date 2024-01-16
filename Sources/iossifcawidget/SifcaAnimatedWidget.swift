@@ -10,7 +10,8 @@ import SwiftUI
 public struct SifcaAnimatedWidget<Content: View>: View {
     let content: () -> Content
 
-    @EnvironmentObject private var animatedWidgetController: AnimatedWidgetController
+    @StateObject public var animatedWidgetController: AnimatedWidgetController = AnimatedWidgetController()
+
     @State private var shakeAmount: CGFloat = 0
 
     public init(@ViewBuilder content: @escaping () -> Content) {
@@ -19,7 +20,7 @@ public struct SifcaAnimatedWidget<Content: View>: View {
 
     public var body: some View {
         content()
-            .modifier(ConditionalAnimationModifier(isAnimated: animatedWidgetController.isAnimated, shakeAmount: shakeAmount))
+            .modifier(ConditionalAnimationModifier( shakeAmount: shakeAmount))
             .onAppear {
                 Timer.scheduledTimer(withTimeInterval: 0.4, repeats: true) { _ in
                     self.shakeAmount = self.shakeAmount == 4 ? -4 : 4
@@ -28,15 +29,18 @@ public struct SifcaAnimatedWidget<Content: View>: View {
             .onDisappear {
                 // Handle any cleanup on disappear
             }
+            .environmentObject(animatedWidgetController)
     }
 }
 
 struct ConditionalAnimationModifier: ViewModifier {
-    let isAnimated: Bool
-    let shakeAmount: CGFloat
+    
+     let shakeAmount: CGFloat
+
+    @EnvironmentObject var animatedWidgetController: AnimatedWidgetController
 
     func body(content: Content) -> some View {
-        if isAnimated {
+        if animatedWidgetController.isAnimated {
             return AnyView(content
                 .offset(x: shakeAmount, y: shakeAmount * 0.2)
                 .animation(Animation.easeInOut(duration: 0.1).repeatForever())
