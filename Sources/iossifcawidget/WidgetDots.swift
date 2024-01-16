@@ -15,8 +15,7 @@ public struct WidgetDots: View {
   @Binding public var dialogIndex: Int
 
   @EnvironmentObject public var animatedWidgetController: AnimatedWidgetController
-  @State private var imageData: Data?  // Added state for image data
-  @State public var isShowingDialog = false
+   @State public var isShowingDialog = false
 
   let imageList = [
     "https://res.cloudinary.com/sifca/image/upload/v1703254268/flutter-mobile-widget/lord-icon-money.gif",
@@ -28,17 +27,7 @@ public struct WidgetDots: View {
     "https://res.cloudinary.com/sifca/image/upload/v1703254270/flutter-mobile-widget/lord-icon-link.gif",
   ]
 
-  private func loadImage(from urlString: String) -> some View {
-    if let url = URL(string: urlString) {
-      return GIFImage(url: url)
-        .frame(width: 34.0, height: 34.0)
-        .clipShape(Circle())
-        .shadow(color: Color.black.opacity(0.8), radius: 4, x: 0, y: 0)
-    } else {
-      return Text("")
-    }
-  }
-
+ 
   public var body: some View {
     ZStack {
       ForEach(imageList.indices, id: \.self) { index in
@@ -52,7 +41,10 @@ public struct WidgetDots: View {
             .frame(width: 34.0, height: 34.0)
             .shadow(color: Color.black.opacity(0.8), radius: 4, x: 0, y: 0)
 
-          loadImage(from: imageList[index])
+         GIFImageWithURL(url: URL(string: imageList[index])!)
+                        .frame(width: 34.0, height: 34.0)
+                        .clipShape(Circle())
+                        .shadow(color: Color.black.opacity(0.8), radius: 4, x: 0, y: 0)
             .gesture(
               TapGesture()
                 .onEnded {
@@ -78,4 +70,35 @@ public struct WidgetDots: View {
       }
     }
   }
+}
+
+public struct GIFImageWithURL: View {
+    private let url: URL
+    @State private var imageData: Data?
+
+    public init(url: URL) {
+        self.url = url
+    }
+
+    private func loadData() {
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            DispatchQueue.main.async {
+                self.imageData = data
+            }
+        }
+        task.resume()
+    }
+
+    public var body: some View {
+        Group {
+            if let imageData = imageData {
+                GIFImage(data: imageData)
+            } else {
+                Text("Loading...")
+                    .onAppear {
+                        self.loadData()
+                    }
+            }
+        }
+    }
 }
