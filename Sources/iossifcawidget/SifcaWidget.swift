@@ -9,27 +9,23 @@ import SwiftUI
 import SwiftUIGIF
 
 public struct SifcaWidget: View {
-    @StateObject public var animatedWidgetController
-    @StateObject public var languageController 
-    @StateObject public var themeManager 
+    @StateObject public var animatedWidgetController: AnimatedWidgetController = AnimatedWidgetController()
+    @StateObject public var languageController: LanguageController = LanguageController()
+    @StateObject public var themeManager: ThemeManager = ThemeManager()
     @State public var verticalCenter: CGFloat = 0
     @State public var position = CGPoint(x: 100, y: 100)
     @State public var isRight = false
     @State public var showDots = true
     @State public var dialogIndex = -1
 
-public init() {
-         self.animatedWidgetController = AnimatedWidgetController()
-        self.languageController = LanguageController()
-        self.themeManager = ThemeManager()
-        self.verticalCenter = 0
-        self.position = CGPoint(x: 100, y: 100)
-        self.isRight = false
-        self.showDots = true
-        self.dialogIndex = -1
+    public init() {
+        verticalCenter = 0
+        position = CGPoint(x: 100, y: 100)
+        isRight = false
+        showDots = true
+        dialogIndex = -1
+    }
 
-     }
-    
     public var body: some View {
         ZStack {
             if showDots {
