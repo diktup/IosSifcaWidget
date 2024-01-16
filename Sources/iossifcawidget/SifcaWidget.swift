@@ -36,9 +36,9 @@ public struct SifcaWidget: View {
                     dialogIndex: $dialogIndex
                 ).environmentObject(animatedWidgetController)
             }
-
-            Image("iossifcawidget_Resources/sifca-app-icon")
-                .resizable()
+              AsyncImage(url: URL(string: "https://res.cloudinary.com/sifca/image/upload/v1703254271/flutter-mobile-widget/sifca-app-icon.png")!) { phase in
+                            ((phase.image) ?? Image(systemName: ""))
+                         .resizable()
                 .frame(width: 80, height: 80)
                 .clipShape(Circle())
                 .shadow(color: Color.black.opacity(0.2), radius: 4, x: 0, y: 0)
@@ -61,6 +61,9 @@ public struct SifcaWidget: View {
                             isRight = value.location.x > horizontalCenter
                         }
                 )
+                        }
+
+                 
             if dialogIndex == 0 && showDots {
                 WalletDialog(dialogIndex: $dialogIndex)
             }
