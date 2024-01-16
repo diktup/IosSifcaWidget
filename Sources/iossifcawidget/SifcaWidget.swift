@@ -18,6 +18,17 @@ public struct SifcaWidget: View {
     @State public var showDots = true
     @State public var dialogIndex = -1
 
+public init() {
+         self.animatedWidgetController = AnimatedWidgetController()
+        self.languageController = LanguageController()
+        self.themeManager = ThemeManager()
+        self.verticalCenter = 0
+        self.position = CGPoint(x: 100, y: 100)
+        self.isRight = false
+        self.showDots = true
+        self.dialogIndex = -1
+
+     }
     
     public var body: some View {
         ZStack {
