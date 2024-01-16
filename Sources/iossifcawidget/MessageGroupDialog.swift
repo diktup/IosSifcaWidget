@@ -28,7 +28,7 @@ public struct MessageGroupDialog: View {
         "Got it, thanks! Looking forward to more shopping and rewards.",
         "We're thrilled to have you as part of our loyalty program! Happy shopping, and feel free to reach out if you have any more questions.",
     ]
-    public init() {} // Add a public initializer if needed
+   
 
    public  var body: some View {
         

@@ -11,7 +11,7 @@ import SwiftUIGIF
 public struct SignOutDialog: View {
     @Binding var dialogIndex: Int
     
-     public init() {} // Add a public initializer if needed
+    
 
   public   var body: some View {
         VStack {
