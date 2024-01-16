@@ -61,8 +61,7 @@ public struct WidgetDots: View {
                 .clipShape(Circle())
                 .shadow(color: Color.black.opacity(0.8), radius: 4, x: 0, y: 0)
             } else {
-              // Handle the case where the URL is invalid or data couldn't be loaded
-              print("Failed to load data.")
+                Text("")
             }
           }
 
