@@ -13,7 +13,7 @@ public class AnimatedWidgetController: ObservableObject {
 }
 
 public class AnimatedWidgetManager {
-   public static func toggleTheAnimation(controller: AnimatedWidgetController) {
+    public static func toggleTheAnimation(controller: AnimatedWidgetController) {
         controller.isAnimated.toggle()
     }
 }

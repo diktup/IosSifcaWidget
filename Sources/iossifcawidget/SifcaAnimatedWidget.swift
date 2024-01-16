@@ -10,8 +10,7 @@ import SwiftUI
 public struct SifcaAnimatedWidget<Content: View>: View {
     let content: () -> Content
 
-    @StateObject public var animatedWidgetController: AnimatedWidgetController = AnimatedWidgetController()
-
+    @EnvironmentObject private var animatedWidgetController: AnimatedWidgetController
     @State private var shakeAmount: CGFloat = 0
 
     public init(@ViewBuilder content: @escaping () -> Content) {
@@ -19,21 +18,30 @@ public struct SifcaAnimatedWidget<Content: View>: View {
     }
 
     public var body: some View {
-        if animatedWidgetController.isAnimated {
-            content()
+        content()
+            .modifier(ConditionalAnimationModifier(isAnimated: animatedWidgetController.isAnimated))
+            .onAppear {
+                Timer.scheduledTimer(withTimeInterval: 0.4, repeats: true) { _ in
+                    self.shakeAmount = self.shakeAmount == 4 ? -4 : 4
+                }
+            }
+            .onDisappear {
+                // Handle any cleanup on disappear
+            }
+    }
+}
+
+struct ConditionalAnimationModifier: ViewModifier {
+    let isAnimated: Bool
+
+    func body(content: Content) -> some View {
+        if isAnimated {
+            return content
                 .offset(x: shakeAmount, y: shakeAmount * 0.2)
                 .animation(Animation.easeInOut(duration: 0.1).repeatForever())
-                .onAppear {
-                    Timer.scheduledTimer(withTimeInterval: 0.4, repeats: true) { _ in
-                        self.shakeAmount = self.shakeAmount == 4 ? -4 : 4
-                    }
-                }
-                .onDisappear {
-                    // Handle any cleanup on disappear
-                }
-                .environmentObject(animatedWidgetController)
+                .transition(.opacity)
         } else {
-            content().environmentObject(animatedWidgetController)
+            return content
         }
     }
 }

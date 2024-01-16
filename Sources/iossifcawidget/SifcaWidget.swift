@@ -34,7 +34,7 @@ public struct SifcaWidget: View {
                     isRight: $isRight,
                     showDots: $showDots,
                     dialogIndex: $dialogIndex
-                )
+                ).environmentObject(animatedWidgetController)
             }
 
             Image("iossifcawidget_Resources/sifca-app-icon")
