@@ -8,11 +8,11 @@
 import Foundation
 import SwiftUI
 
-class AnimatedWidgetController: ObservableObject {
+public class AnimatedWidgetController: ObservableObject {
     @Published var isAnimated: Bool = false
 }
 
-class AnimatedWidgetManager {
+public class AnimatedWidgetManager {
     static func toggleTheAnimation(controller: AnimatedWidgetController) {
         controller.isAnimated.toggle()
     }

@@ -8,28 +8,28 @@ import Foundation
 import SwiftUI
 
 
-class ThemeManager: ObservableObject {
+public class ThemeManager: ObservableObject {
     @Published var isDarkMode = true
     @Published var isSystem = false
     @Published var isMainApp = false
     @Published var customFontName: String = "Rubik"
     @Published var fontSize: CGFloat = 20
 
-    var textColor: Color {
+ public    var textColor: Color {
         return isDarkMode ? .white : .black
     }
 
-    var backgroundColor: Color {
+public     var backgroundColor: Color {
         return isDarkMode ? .black : .white
     }
-    var foreGroundColor: Color {
+ public    var foreGroundColor: Color {
         return isDarkMode ? .white : .black
     }
 
-    var customFont: Font {
+  public   var customFont: Font {
         return Font.custom(customFontName, size: fontSize)
     }
-    var bodyFont: Font {
+  public   var bodyFont: Font {
         return Font.custom(customFontName, size: 14).weight(.medium)
     }
 }

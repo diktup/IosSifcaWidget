@@ -9,10 +9,10 @@ import SwiftUI
 import SwiftUIGIF
 
 public struct WidgetDots: View {
-    @Binding var position: CGPoint
-    @Binding var isRight: Bool
-    @Binding var showDots: Bool
-    @Binding var dialogIndex: Int
+    @Binding public var position: CGPoint
+    @Binding public var isRight: Bool
+    @Binding public var showDots: Bool
+    @Binding public var dialogIndex: Int
 
     @EnvironmentObject public var animatedWidgetController: AnimatedWidgetController
     @State public var isShowingDialog = false

@@ -13,10 +13,10 @@ public struct SifcaWidget: View {
     @StateObject public var languageController = LanguageController()
     @StateObject public var themeManager = ThemeManager()
     @State public var verticalCenter: CGFloat = 0
-    @State var position = CGPoint(x: 100, y: 100)
-    @State var isRight = false
-    @State var showDots = true
-    @State var dialogIndex = -1
+    @State public var position = CGPoint(x: 100, y: 100)
+    @State public var isRight = false
+    @State public var showDots = true
+    @State public var dialogIndex = -1
 
     public init() {} // Add a public initializer if needed
 
