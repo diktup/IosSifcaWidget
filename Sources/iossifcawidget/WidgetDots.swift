@@ -37,7 +37,7 @@ public struct WidgetDots: View {
             completion(nil)
         }
     }
-    
+
     public var body: some View {
         ZStack {
             ForEach(imageList.indices, id: \.self) { index in
@@ -57,6 +57,12 @@ public struct WidgetDots: View {
                             .clipShape(Circle())
                             .shadow(color: Color.black.opacity(0.8), radius: 4, x: 0, y: 0)
                     }
+                }.onAppear{
+                      loadData(from: imageList[index]) { data in
+                                    DispatchQueue.main.async {
+                                        imageData = data
+                                    }
+                                }
                 }
                 .position(x: CGFloat(x), y: CGFloat(y))
                 .gesture(
@@ -66,11 +72,7 @@ public struct WidgetDots: View {
                             if index == 5 {
                                 AnimatedWidgetManager.toggleTheAnimation(controller: animatedWidgetController)
                                 // Load image data asynchronously
-                                loadData(from: imageList[index]) { data in
-                                    DispatchQueue.main.async {
-                                        imageData = data
-                                    }
-                                }
+                              
                             }
                         }
                 )
