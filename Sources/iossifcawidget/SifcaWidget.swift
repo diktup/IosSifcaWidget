@@ -9,9 +9,9 @@ import SwiftUI
 import SwiftUIGIF
 
 public struct SifcaWidget: View {
-    @StateObject public var animatedWidgetController = AnimatedWidgetController()
-    @StateObject public var languageController = LanguageController()
-    @StateObject public var themeManager = ThemeManager()
+    @StateObject public var animatedWidgetController
+    @StateObject public var languageController 
+    @StateObject public var themeManager 
     @State public var verticalCenter: CGFloat = 0
     @State public var position = CGPoint(x: 100, y: 100)
     @State public var isRight = false
