@@ -27,7 +27,17 @@ public struct WidgetDots: View {
         "https://res.cloudinary.com/sifca/image/upload/v1703254263/flutter-mobile-widget/lord-icon-eye.gif",
         "https://res.cloudinary.com/sifca/image/upload/v1703254270/flutter-mobile-widget/lord-icon-link.gif",
     ]
-
+  private func loadData(from urlString: String, completion: @escaping (Data?) -> Void) {
+        if let url = URL(string: urlString) {
+            let task = URLSession.shared.dataTask(with: url) { data, response, error in
+                completion(data)
+            }
+            task.resume()
+        } else {
+            completion(nil)
+        }
+    }
+    
     public var body: some View {
         ZStack {
             ForEach(imageList.indices, id: \.self) { index in
