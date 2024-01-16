@@ -14,11 +14,10 @@ public struct SifcaAnimatedWidget<Content: View>: View {
     @State public var shakeAmount: CGFloat = 0
 
     let content: () -> Content
-    
-    public init(animatedWidgetController: AnimatedWidgetController, shakeAmount: CGFloat, content: @escaping () -> View) {
-        self.animatedWidgetController = animatedWidgetController
-        self.shakeAmount = shakeAmount
+
+    public init(content: @escaping () -> Content) {
         self.content = content
+        shakeAmount = 0
     }
 
     public var body: some View {
