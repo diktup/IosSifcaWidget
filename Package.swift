@@ -27,7 +27,20 @@ let package = Package(
 
       ],
       resources: [
-        .copy("Resources")
+        .copy("Resources/Img/lord-icon-walkie-talkie.gif"),
+        .copy("Resources/Img/lord-icon-reputation.png"),
+        .copy("Resources/Img/lord-icon-joystick.gif"),
+        .copy("Resources/Img/lord-icon-monster.gif"),
+        .copy("Resources/Img/lord-icon-profile.gif"),
+        .copy("Resources/Img/lord-icon-stairs.gif"),
+        .copy("Resources/Img/lord-icon-money.gif"),
+        .copy("Resources/Img/lord-icon-chat.gif"),
+        .copy("Resources/Img/lord-icon-coin.gif"),
+        .copy("Resources/Img/lord-icon-gift.gif"),
+        .copy("Resources/Img/lord-icon-link.gif"),
+        .copy("Resources/Img/sifca-app-icon.png"),
+        .copy("Resources/Img/lord-icon-eye.gif"),
+        .copy("Resources/Img/ios-app-icon.png"),
       ]
     ),
     .testTarget(
