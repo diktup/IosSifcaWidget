@@ -27,9 +27,7 @@ let package = Package(
 
       ],
       resources: [
-        .copy("Resources/Img"),
-        .copy("Resources/Fonts"),
-        .copy("Resources/Localization"),
+        .copy("Resources")
       ]
     ),
     .testTarget(
