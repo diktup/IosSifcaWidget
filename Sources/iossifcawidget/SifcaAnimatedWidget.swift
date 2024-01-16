@@ -13,7 +13,7 @@ public struct SifcaAnimatedWidget<Content: View>: View {
     
     @EnvironmentObject private var animatedWidgetController: AnimatedWidgetController
     @State private var shakeAmount: CGFloat = 0
-    @StateObject public var animatedWidgetController2: AnimatedWidgetController = AnimatedWidgetController()
+ 
    
 
     public init(@ViewBuilder content: @escaping () -> Content) {
@@ -33,7 +33,7 @@ public struct SifcaAnimatedWidget<Content: View>: View {
                 .onDisappear {
                     // Handle any cleanup on disappear
                 }
-                .environmentObject(animatedWidgetController2)
+                .environmentObject(animatedWidgetController)
         } else {
             content()
         }
