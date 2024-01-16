@@ -11,7 +11,7 @@ public struct SifcaAnimatedWidget<Content: View>: View {
     
     let content: () -> Content
     
-    @StateObject public var animatedWidgetController: AnimatedWidgetController = AnimatedWidgetController()
+    @EnvironmentObject private var animatedController: AnimatedWidgetController
     @State private var shakeAmount: CGFloat = 0
 
    
