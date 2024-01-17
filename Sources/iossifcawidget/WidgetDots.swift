@@ -10,7 +10,7 @@ import SwiftUIGIF
 
 public struct WidgetDots: View {
   @Binding public var position: CGPoint
-  @Binding public var isRight: Bool
+  @Binding public var right: Bool
   @Binding public var showDots: Bool
   @Binding public var dialogIndex: Int
 
@@ -31,7 +31,7 @@ public struct WidgetDots: View {
     ZStack {
       ForEach(imageList.indices, id: \.self) { index in
         let angle = Double(index) * (Double.pi / 6) * 1.1 - 1.75
-        let x = position.x + 80 * (isRight ? -cos(angle) : cos(angle))
+        let x = position.x + 80 * (right ? -cos(angle) : cos(angle))
         let y = position.y + 80 * sin(angle)
         ZStack {
 
