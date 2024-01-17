@@ -15,7 +15,7 @@ public struct SifcaWidget: View {
   @StateObject public var themeManager: ThemeManager = ThemeManager()
 
   @State public var verticalCenter: CGFloat = 0
-  @State public var position = CGPoint(x: 100, y: 100)
+  @State public var position = CGPoint(x: 0, y: 0)
   @State public var showDots = true
   @State public var dialogIndex = -1
 
@@ -30,10 +30,12 @@ public struct SifcaWidget: View {
   private func initState() {
     top = UIScreen.main.bounds.size.height / 1.8
     left = UIScreen.main.bounds.size.width / 1.3
+    position = CGPoint(x: left, y: top)
   }
+
   public init() {
     verticalCenter = 0
-    position = CGPoint(x: 100, y: 100)
+    position = CGPoint(x: UIScreen.main.bounds.size.width / 1.3, y: UIScreen.main.bounds.size.height / 1.8)
     right = false
     showDots = true
     dialogIndex = -1
@@ -44,7 +46,7 @@ public struct SifcaWidget: View {
       ZStack {
         if showDots {
           WidgetDots(
-            position: CGPoint(x: left ?? 0.0, y: top ?? 0.0),
+            position: $position,
             right: $right,
             showDots: $showDots,
             dialogIndex: $dialogIndex
@@ -79,6 +81,8 @@ public struct SifcaWidget: View {
             if updateDy! > (size.height - 220) {
               top = size.height - 220
             }
+               position = CGPoint(x: left, y: top)
+ 
           },
           onPanUpdate: { value in
             let size = geometry.size
@@ -94,6 +98,8 @@ public struct SifcaWidget: View {
             if value.location.x > size.width / 2.0 {
               right = true
             }
+                position = CGPoint(x: left, y: top)
+
           }
         )
 
