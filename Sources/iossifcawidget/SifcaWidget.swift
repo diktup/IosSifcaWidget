@@ -71,7 +71,7 @@ public struct SifcaWidget: View {
               left = 30.0
             } else {
               right = true
-              left = UIScreen.main.bounds.width - (opacity < 1 ? 60.0 : 80.0) - 30.0
+              left = UIScreen.main.bounds.width - 80.0
             }
             if updateDy! < 60 {
               top = 60
