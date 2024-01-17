@@ -14,6 +14,9 @@ public class LanguageController: ObservableObject {
 }
 
 public class Localizer {
+
+ 
+
  public    static func setLanguage(_ language: String, controller: LanguageController) {
         controller.currentLanguage = language
         controller.layoutDirection = (language == "ar") ? .rightToLeft : .leftToRight
