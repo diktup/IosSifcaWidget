@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import SwiftUIGIF
 
 extension Color {
     init(hex: UInt, alpha: Double = 1.0) {
