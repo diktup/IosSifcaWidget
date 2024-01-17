@@ -30,7 +30,7 @@ public struct SifcaWidget: View {
   private func initState() {
     top = UIScreen.main.bounds.size.height / 1.8
     left = UIScreen.main.bounds.size.width / 1.3
-    position = CGPoint(x: left, y: top)
+    position = CGPoint(x: left ?? 0, y: top ?? 0)
   }
 
   public init() {
@@ -81,7 +81,7 @@ public struct SifcaWidget: View {
             if updateDy! > (size.height - 220) {
               top = size.height - 220
             }
-               position = CGPoint(x: left, y: top)
+               position = CGPoint(x: left ?? 0, y: top ?? 0)
  
           },
           onPanUpdate: { value in
@@ -98,7 +98,7 @@ public struct SifcaWidget: View {
             if value.location.x > size.width / 2.0 {
               right = true
             }
-                position = CGPoint(x: left, y: top)
+                position = CGPoint(x: left ?? 0, y: top ?? 0)
 
           }
         )
