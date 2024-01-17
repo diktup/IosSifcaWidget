@@ -21,7 +21,7 @@ public class Localizer {
 
  public    static func localizedString(_ key: String, controller: LanguageController) -> String {
         let path = Bundle.main.path(forResource: controller.currentLanguage, ofType: "lproj")
-        let bundle = Bundle(path: path ?? "") ?? Bundle.main
+        let bundle = Bundle(path: path ?? "") ?? Bundle.module
         return NSLocalizedString(key, tableName: nil, bundle: bundle, value: "", comment: "")
     }
 }
