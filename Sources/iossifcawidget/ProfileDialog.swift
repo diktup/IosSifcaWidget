@@ -20,7 +20,7 @@ public struct ProfileDialog: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
                     HStack {
-                        Text("Profile")
+                        Text("Profile", bundle: .module)
                             .font(.title2)
 
                         Spacer()
