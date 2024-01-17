@@ -44,7 +44,7 @@ public struct SifcaWidget: View {
       ZStack {
         if showDots {
           WidgetDots(
-            position: $position,
+            position: CGPoint(x: left ?? 0.0, y: top ?? 0.0),
             right: $right,
             showDots: $showDots,
             dialogIndex: $dialogIndex
@@ -117,10 +117,7 @@ public struct SifcaWidget: View {
         if dialogIndex == 6 && showDots {
           SignOutDialog(dialogIndex: $dialogIndex)
         }
-      }
-      
-        .position(x: left ?? 0.0, y: top ?? 0.0)
-      .onAppear {
+      }.onAppear {
         initState()
       }
       .environmentObject(languageController)
@@ -169,6 +166,7 @@ struct AnimatedView: View {
               onPanEnd(value)
             }
         )
+        .position(x: left, y: top)
 
     }
   }
