@@ -35,7 +35,8 @@ public struct SifcaWidget: View {
 
   public init() {
     verticalCenter = 0
-    position = CGPoint(x: UIScreen.main.bounds.size.width / 1.3, y: UIScreen.main.bounds.size.height / 1.8)
+    position = CGPoint(
+      x: UIScreen.main.bounds.size.width / 1.3, y: UIScreen.main.bounds.size.height / 1.8)
     right = false
     showDots = true
     dialogIndex = -1
@@ -66,28 +67,28 @@ public struct SifcaWidget: View {
             opacity = 1.0
             showDots = true
           },
- .onEnded { value in
-                    let size = UIScreen.main.bounds.size
-  
-                    if !right && (startDx < size.width / 2.0) && updateDx < size.width / 2.0 {
-                        right = false
-                        left = 30.0
-                    } else {
-                        right = true
-                        left = size.width / 1.3
-                    }
+          .onPanEnd { value in
+            let size = UIScreen.main.bounds.size
 
-                    if updateDy < 60 {
-                        top = 60
-                    }
+            if !right && (startDx < size.width / 2.0) && updateDx < size.width / 2.0 {
+              right = false
+              left = 30.0
+            } else {
+              right = true
+              left = size.width / 1.3
+            }
 
-                    if updateDy > (size.height - 220) {
-                        top = size.height - 220
-                    }
-                },
+            if updateDy < 60 {
+              top = 60
+            }
+
+            if updateDy > (size.height - 220) {
+              top = size.height - 220
+            }
+          },
           onPanUpdate: { value in
             let size = geometry.size
-            updateDx =   value.location.x
+            updateDx = value.location.x
             opacity = 1.0
             showDots = true
             top = top! + value.translation.height
@@ -99,7 +100,7 @@ public struct SifcaWidget: View {
             if value.location.x > size.width / 2.0 {
               right = true
             }
- 
+
           }
         )
 
