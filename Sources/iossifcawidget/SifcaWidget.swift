@@ -62,14 +62,11 @@ public struct SifcaWidget: View {
             showDots.toggle()
             opacity = 1.0
           },
-
           onEnded: { value in
-
-             let horizontalCenter = UIScreen.main.bounds.width / 2
-    
+            let horizontalCenter = UIScreen.main.bounds.width / 2
             opacity = 1.0
             showDots = true
-            if !right && (value.startLocation.x < horizontalCenter ) && updateDx < horizontalCenter {
+            if !right && (startDx < horizontalCenter) && updateDx < horizontalCenter {
               right = false
               left = 30.0
             } else {
@@ -85,8 +82,8 @@ public struct SifcaWidget: View {
             position = CGPoint(x: left ?? 0, y: top ?? 0)
           },
           onChanged: { value in
-               startDx = value.startLocation.x
-    
+            let horizontalCenter = UIScreen.main.bounds.width / 2
+            startDx = value.startLocation.x
             updateDx = value.location.x
             opacity = 1.0
             showDots = true
@@ -94,15 +91,17 @@ public struct SifcaWidget: View {
             left = left! + value.translation.width
             position = CGPoint(x: left ?? 0, y: top ?? 0)
             updateDy = top
-            let horizontalCenter = UIScreen.main.bounds.width / 2
 
             if value.location.x < horizontalCenter {
               right = false
+                  left = max(30.0, left!) // Ensure left does not go below 30.0
+
             }
             if value.location.x > horizontalCenter {
               right = true
-            }
+                      left = min(UIScreen.main.bounds.width - (opacity < 1 ? 60.0 : 80.0) - 30.0, left!)
 
+            }
           }
         )
 
@@ -156,12 +155,12 @@ struct AnimatedView: View {
         .frame(width: 80, height: 80)
         .clipShape(Circle())
         .shadow(color: Color.black.opacity(0.2), radius: 4, x: 0, y: 0)
-        .gesture(
-          TapGesture()
-            .onEnded {
-              onTap()
-            }
-        )
+        // .gesture(
+        //   TapGesture()
+        //     .onEnded {
+        //       onTap()
+        //     }
+        // )
         .gesture(
           DragGesture()
             .onChanged { value in
