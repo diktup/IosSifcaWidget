@@ -87,7 +87,7 @@ public struct SifcaWidget: View {
           onChanged: { value in
              let size = UIScreen.main.bounds.size
            if value.startLocation == value.location {
-                             startDx = startDx + value.translation.width
+                             startDx = right ? (startDx + value.translation.width) : (startDx - value.translation.width)
                         }
             updateDx =  value.location.x
             opacity = 1.0
