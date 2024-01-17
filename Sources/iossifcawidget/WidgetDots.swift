@@ -37,7 +37,7 @@ public struct WidgetDots: View {
 
           Circle()
             .fill(Color.white)
-            .frame(width: 34.0, height: 34.0)
+            .frame(width: 38.0, height: 38.0)
             .shadow(color: Color.black.opacity(0.8), radius: 4, x: 0, y: 0)
 
           GIFImageWithURL(url: URL(string: imageList[index])!)

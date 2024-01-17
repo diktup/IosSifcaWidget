@@ -68,7 +68,7 @@ public struct SifcaWidget: View {
             showDots = true
             if !right && (startDx < horizontalCenter) && updateDx < horizontalCenter {
               right = false
-              left = 30.0
+              left = 50.0
             } else {
               right = true
               left = UIScreen.main.bounds.width - 80.0
