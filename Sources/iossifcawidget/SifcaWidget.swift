@@ -68,28 +68,26 @@ public struct SifcaWidget: View {
           },
  .onEnded { value in
                     let size = UIScreen.main.bounds.size
-                    let startDx = value.startLocation.x
-                    let updateDx = value.location.x
-
-                    if !_right && (startDx < size.width / 2.0) && updateDx < size.width / 2.0 {
-                        _right = false
-                        _left = 30.0
+  
+                    if !right && (startDx < size.width / 2.0) && updateDx < size.width / 2.0 {
+                        right = false
+                        left = 30.0
                     } else {
-                        _right = true
-                        _left = size.width / 1.3
+                        right = true
+                        left = size.width / 1.3
                     }
 
-                    if value.location.y < 60 {
-                        _top = 60
+                    if updateDy < 60 {
+                        top = 60
                     }
 
-                    if value.location.y > (size.height - 220) {
-                        _top = size.height - 220
+                    if updateDy > (size.height - 220) {
+                        top = size.height - 220
                     }
                 },
           onPanUpdate: { value in
             let size = geometry.size
-            updateDx = right ? value.location.x : value.location.x
+            updateDx =   value.location.x
             opacity = 1.0
             showDots = true
             top = top! + value.translation.height
