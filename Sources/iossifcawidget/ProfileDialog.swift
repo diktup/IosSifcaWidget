@@ -254,7 +254,8 @@ public struct ProfileDialog: View {
         }
 
         if isPopUpVisible {
-            EditProfileDialog(isPopUpVisible: $isPopUpVisible).environmentObject(languageController)
+            EditProfileDialog(isPopUpVisible: $isPopUpVisible)
+            .environmentObject(languageController)
             .environmentObject(themeManager)
         }
     }

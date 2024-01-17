@@ -121,10 +121,15 @@ public struct CampaignsDialog: View {
                     ForEach(campaignList.indices, id: \.self) { index in
 
                         HStack(alignment: .top) {
-                            Image("prime-bulk-app-icon")
-                                .resizable()
-                                .frame(width: 50.0, height: 50.0)
-                                .cornerRadius(16.0)
+                            
+                      AsyncImage(url: URL(string: "https://res.cloudinary.com/sifca/image/upload/v1703254262/flutter-mobile-widget/ios-app-icon.png")!) { phase in
+                            ((phase.image) ?? Image(systemName: ""))
+                              .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 50.0, height: 50.0)
+                    .clipShape(RoundedRectangle(cornerRadius: 16.0))
+                    .padding(.trailing, 8.0)
+                        }
 
                             Spacer().frame(width: 8.0)
                             VStack(alignment: .leading) {
