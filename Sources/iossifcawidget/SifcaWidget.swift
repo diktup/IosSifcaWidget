@@ -66,10 +66,10 @@ public struct SifcaWidget: View {
           onEnded: { value in
 
              let horizontalCenter = UIScreen.main.bounds.width / 2
-
+    
             opacity = 1.0
             showDots = true
-            if !right && (startDx < horizontalCenter ) && updateDx < horizontalCenter {
+            if !right && (value.startLocation.x < horizontalCenter ) && updateDx < horizontalCenter {
               right = false
               left = 30.0
             } else {
