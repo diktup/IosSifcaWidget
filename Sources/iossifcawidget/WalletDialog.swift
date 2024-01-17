@@ -265,7 +265,8 @@ public struct WalletDialog: View {
                 HStack {
                     Text("\(Int.random(in: 0 ..< 999))")
                         .font(.headline)
-                    GIFImage(name: "lord-icon-coin")
+                             GIFImageWithURL(url: URL(string: "https://res.cloudinary.com/sifca/image/upload/v1703254271/flutter-mobile-widget/lord-icon-coin.gif")!)
+
                         .frame(width: 30, height: 30)
                 }
                 .padding(8)

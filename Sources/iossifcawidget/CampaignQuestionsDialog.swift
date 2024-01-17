@@ -57,7 +57,7 @@ public struct CampaignQuestionsDialog: View {
 
 
    public  var body: some View {
-        ScrollView {
+ 
             VStack(alignment: .leading, spacing: 16) {
                 HStack {
                     Text("\(widgetIndex + 1)/3")
@@ -85,8 +85,13 @@ public struct CampaignQuestionsDialog: View {
                     HStack {
                         Text("\(Int.random(in: 0 ..< 999))")
                             .font(.headline)
-                        GIFImage(name: "lord-icon-coin")
-                            .frame(width: 30, height: 30)
+                AsyncImage(url: URL(string: "https://res.cloudinary.com/sifca/image/upload/v1705483169/flutter-mobile-widget/lord-icon-reputation.png")!) { phase in
+                            ((phase.image) ?? Image(systemName: ""))
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 30.0, height: 30.0)
+                                .clipShape(Circle())
+                        }
                     }
                     .padding(8)
                     .background(Color.gray.opacity(0.1))
@@ -108,7 +113,7 @@ public struct CampaignQuestionsDialog: View {
                     widget3()
                 }
             }
-        }
+ 
         .padding(16.0)
         .background(Color.white)
         .cornerRadius(16.0)
