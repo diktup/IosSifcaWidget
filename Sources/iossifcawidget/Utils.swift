@@ -55,3 +55,34 @@ struct RadioButton: View {
         }
     }
 }
+
+public struct GIFImageWithURL: View {
+  private let url: URL
+  @State private var imageData: Data?
+
+  public init(url: URL) {
+    self.url = url
+  }
+
+  private func loadData() {
+    let task = URLSession.shared.dataTask(with: url) { data, response, error in
+      DispatchQueue.main.async {
+        self.imageData = data
+      }
+    }
+    task.resume()
+  }
+
+  public var body: some View {
+    Group {
+      if let imageData = imageData {
+        GIFImage(data: imageData)
+      } else {
+        Text("")
+          .onAppear {
+            self.loadData()
+          }
+      }
+    }
+  }
+}

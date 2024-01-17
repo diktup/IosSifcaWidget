@@ -51,12 +51,15 @@ public struct MessageGroupDialog: View {
             Divider()
 
             HStack {
-                Image("prime-bulk-app-icon")
-                    .resizable()
+                    
+                      AsyncImage(url: URL(string: "https://res.cloudinary.com/sifca/image/upload/v1703254262/flutter-mobile-widget/ios-app-icon.png")!) { phase in
+                            ((phase.image) ?? Image(systemName: ""))
+                              .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 40, height: 40)
-                    .clipShape(RoundedRectangle(cornerRadius: 8.0))
+                    .clipShape(RoundedRectangle(cornerRadius: 16.0))
                     .padding(.trailing, 8.0)
+                        }
 
                 VStack(alignment: .leading, spacing: 4.0) {
                     Text("Prime Bulk")
@@ -78,7 +81,7 @@ public struct MessageGroupDialog: View {
                         .padding(8.0)
                         .foregroundColor(isLeading ? .white : Color.black)
                         .background(
-                            RoundedRectangle(cornerRadius: 8.0, corners: isLeading ? [.topRight, .bottomRight] : [.topLeft, .bottomLeft])
+                            RoundedRectangle(cornerRadius: 16.0, corners: isLeading ? [.topRight, .bottomRight] : [.topLeft, .bottomLeft])
                                 .fill(isLeading ? Color.blue : Color.gray.opacity(0.1))
                         )
                         .frame(maxWidth: .infinity, alignment: isLeading ? .leading : .trailing)
@@ -101,7 +104,7 @@ public struct MessageGroupDialog: View {
                     .textFieldStyle(PlainTextFieldStyle())
                     .padding(16.0)
                     .background(
-                        RoundedRectangle(cornerRadius: 8.0)
+                        RoundedRectangle(cornerRadius: 16.0)
                             .stroke(Color.gray, lineWidth: 0.8)
                     )
 

@@ -138,7 +138,7 @@ public struct CampaignQuestionsDialog: View {
                         .foregroundColor(Color(hex: 0x299CDB))
                         .cornerRadius(16.0)
                         .overlay(
-                            RoundedRectangle(cornerRadius: 8.0)
+                            RoundedRectangle(cornerRadius: 16.0)
                                 .stroke(Color(hex: 0x299CDB), lineWidth: 1.0))
                 }
                 Button(action: {
@@ -209,7 +209,7 @@ public struct CampaignQuestionsDialog: View {
                             .foregroundColor(Color(hex: 0x299CDB))
                             .cornerRadius(16.0)
                             .overlay(
-                                RoundedRectangle(cornerRadius: 8.0)
+                                RoundedRectangle(cornerRadius: 16.0)
                                     .stroke(Color(hex: 0x299CDB), lineWidth: 1.0))
                     }
                     Button(action: {
@@ -233,7 +233,7 @@ public struct CampaignQuestionsDialog: View {
                 .padding()
                 .frame(minHeight: 100.0)
                 .background(
-                    RoundedRectangle(cornerRadius: 8.0)
+                    RoundedRectangle(cornerRadius: 16.0)
                         .stroke(
                             searchText.isEmpty
                                 ? Color.gray
@@ -289,7 +289,7 @@ public struct CampaignQuestionsDialog: View {
                         .foregroundColor(Color(hex: 0x299CDB))
                         .cornerRadius(16.0)
                         .overlay(
-                            RoundedRectangle(cornerRadius: 8.0)
+                            RoundedRectangle(cornerRadius: 16.0)
                                 .stroke(Color(hex: 0x299CDB), lineWidth: 1.0))
                 }
                 Button(action: {

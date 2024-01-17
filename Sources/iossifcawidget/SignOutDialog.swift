@@ -32,8 +32,9 @@ public struct SignOutDialog: View {
             Spacer().frame(height: 16.0)
             Divider()
             Spacer().frame(height: 16.0)
-            GIFImage(name: "lord-icon-link")
-                .frame(width: 100, height: 100)
+              GIFImageWithURL(url: URL(string: "https://res.cloudinary.com/sifca/image/upload/v1703254270/flutter-mobile-widget/lord-icon-link.gif")!)
+                
+     .frame(width: 100, height: 100)
             Spacer().frame(height: 16.0)
             Text("Leaving So Soon?")
                 .font(.title)

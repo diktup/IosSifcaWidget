@@ -42,8 +42,9 @@ public struct NotificationsDialog: View {
 
                 HStack(alignment: /*@START_MENU_TOKEN@*/ .center /*@END_MENU_TOKEN@*/) {
                     Spacer()
-                    GIFImage(name: "lord-icon-walkie-talkie")
-                        .frame(width: 100.0, height: 100.0)
+                       GIFImageWithURL(url: URL(string: "https://res.cloudinary.com/sifca/image/upload/v1703254272/flutter-mobile-widget/lord-icon-walkie-talkie.gif")!)
+                
+     .frame(width: 100, height: 100)
                     Spacer()
                 }
 

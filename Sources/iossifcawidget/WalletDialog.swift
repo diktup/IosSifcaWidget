@@ -88,9 +88,9 @@ public struct WalletDialog: View {
                     Text("3224")
                         .font(.title)
 
-                    Image("lord-icon-reputation")
-                        .resizable()
-                        .frame(width: 26, height: 26)
+                 GIFImageWithURL(url: URL(string: "https://res.cloudinary.com/sifca/image/upload/v1703254271/flutter-mobile-widget/lord-icon-coin.gif")!)
+                
+     .frame(width: 30, height: 30)
                     Spacer()
                 }
                 Text("Let's explore how you can earn the coins and where to spend them!")
@@ -110,7 +110,7 @@ public struct WalletDialog: View {
                             .foregroundColor(.black)
                             .cornerRadius(16.0)
                             .overlay(
-                                RoundedRectangle(cornerRadius: 8.0)
+                                RoundedRectangle(cornerRadius: 16.0)
                                     .stroke(Color.gray, lineWidth: 1.0))
                     }
                     Button(action: {
@@ -124,7 +124,7 @@ public struct WalletDialog: View {
                             .foregroundColor(.black)
                             .cornerRadius(16.0)
                             .overlay(
-                                RoundedRectangle(cornerRadius: 8.0)
+                                RoundedRectangle(cornerRadius: 16.0)
                                     .stroke(Color.gray, lineWidth: 1.0))
                     }
                     Button(action: {
@@ -138,7 +138,7 @@ public struct WalletDialog: View {
                             .foregroundColor(.black)
                             .cornerRadius(16.0)
                             .overlay(
-                                RoundedRectangle(cornerRadius: 8.0)
+                                RoundedRectangle(cornerRadius: 16.0)
                                     .stroke(Color.gray, lineWidth: 1.0))
                     }
                 }
@@ -169,7 +169,7 @@ public struct WalletDialog: View {
 
             HStack {
                 ZStack {
-                    RoundedRectangle(cornerRadius: 8.0)
+                    RoundedRectangle(cornerRadius: 16.0)
                         .fill(Color(index == 0 ? .yellow : index == 1 ? .green : .red).opacity(0.1))
                         .frame(width: 50.0, height: 50.0)
 
@@ -224,7 +224,7 @@ public struct WalletDialog: View {
 
             HStack {
                 ZStack {
-                    RoundedRectangle(cornerRadius: 8.0)
+                    RoundedRectangle(cornerRadius: 16.0)
                         .fill(Color(index.isMultiple(of: 2) ? .red : .green).opacity(0.1))
                         .frame(width: 50.0, height: 50.0)
 

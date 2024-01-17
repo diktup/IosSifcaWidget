@@ -138,7 +138,7 @@ public struct EditProfileDialog: View {
                         )
                         .padding()
                         .background(
-                            RoundedRectangle(cornerRadius: 8.0)
+                            RoundedRectangle(cornerRadius: 16.0)
                                 .stroke(Color.gray, lineWidth: 0.4)
                         )
 
@@ -158,7 +158,7 @@ public struct EditProfileDialog: View {
                         )
                         .padding()
                         .background(
-                            RoundedRectangle(cornerRadius: 8.0)
+                            RoundedRectangle(cornerRadius: 16.0)
                                 .stroke(Color.gray, lineWidth: 0.4)
                         )
                         .font(themeManager.bodyFont)
@@ -180,7 +180,7 @@ public struct EditProfileDialog: View {
                         .padding(.horizontal, 16.0)
                         .frame(height: 46.0)
                         .background(
-                            RoundedRectangle(cornerRadius: 8.0)
+                            RoundedRectangle(cornerRadius: 16.0)
                                 .stroke(Color.gray, lineWidth: 0.4)
                         )
                     }
