@@ -10,7 +10,9 @@ import SwiftUI
 public struct ProfileDialog: View {
     @Binding var dialogIndex: Int
     @State var isPopUpVisible = false
-
+    
+    @StateObject public var languageController: LanguageController = LanguageController()
+    @StateObject public var themeManager: ThemeManager = ThemeManager()
    
 
    public  var body: some View {
@@ -252,7 +254,8 @@ public struct ProfileDialog: View {
         }
 
         if isPopUpVisible {
-            EditProfileDialog(isPopUpVisible: $isPopUpVisible)
+            EditProfileDialog(isPopUpVisible: $isPopUpVisible).environmentObject(languageController)
+            .environmentObject(themeManager)
         }
     }
 }
