@@ -92,11 +92,11 @@ public struct SifcaWidget: View {
             position = CGPoint(x: left ?? 0, y: top ?? 0)
             updateDy = top
 
-            if left < horizontalCenter {
+            if (left ?? 0) < horizontalCenter {
               right = false
  
             }
-            if left > horizontalCenter {
+            if (left ?? 0) > horizontalCenter {
               right = true
  
             }
