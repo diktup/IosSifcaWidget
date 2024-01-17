@@ -92,15 +92,13 @@ public struct SifcaWidget: View {
             position = CGPoint(x: left ?? 0, y: top ?? 0)
             updateDy = top
 
-            if value.location.x < horizontalCenter {
+            if left < horizontalCenter {
               right = false
-                  left = max(30.0, left!) // Ensure left does not go below 30.0
-
+ 
             }
-            if value.location.x > horizontalCenter {
+            if left > horizontalCenter {
               right = true
-                      left = min(UIScreen.main.bounds.width - (opacity < 1 ? 60.0 : 80.0) - 30.0, left!)
-
+ 
             }
           }
         )
