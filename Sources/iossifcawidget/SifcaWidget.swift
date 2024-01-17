@@ -62,43 +62,41 @@ public struct SifcaWidget: View {
             showDots.toggle()
             opacity = 1.0
           },
-          onPanStart: { value in
+         
+          
+          onEnded: { value in
+ 
+            let size = UIScreen.main.bounds.size
             startDx = right ? value.location.x : value.location.x
             opacity = 1.0
             showDots = true
-          },
-          onPanEnd: { value in
-            let size = UIScreen.main.bounds.size
-
             if !right && (startDx < size.width / 2.0) && updateDx < size.width / 2.0 {
-              right = false
-              left = 30.0
+                right = false
+                left = 30.0
             } else {
-              right = true
-              left = size.width / 1.3
+                right = true
+                left = size.width - (opacity < 1 ? 60.0 : 80.0) - 30.0
             }
-
-            if updateDy < 60 {
-              top = 60
+            if updateDy! < 60 {
+                top = 60
             }
-
-            if updateDy > (size.height - 220) {
-              top = size.height - 220
+            if updateDy! > (size.height - 220) {
+                top = size.height - 220
             }
           },
-          onPanUpdate: { value in
-            let size = geometry.size
-            updateDx = value.location.x
+          onChanged: { value in
+             let size = UIScreen.main.bounds.size
+            updateDx = right ? value.location.x : value.location.x
             opacity = 1.0
             showDots = true
             top = top! + value.translation.height
             left = left! + value.translation.width
             updateDy = top
             if value.location.x < size.width / 2.0 {
-              right = false
+                right = false
             }
             if value.location.x > size.width / 2.0 {
-              right = true
+                right = true
             }
 
           }
@@ -139,9 +137,8 @@ struct AnimatedView: View {
   var opacity: Double
   var showDots: Bool
   var onTap: () -> Void
-  var onPanStart: (DragGesture.Value) -> Void
-  var onPanEnd: (DragGesture.Value) -> Void
-  var onPanUpdate: (DragGesture.Value) -> Void
+  var onEnded: (DragGesture.Value) -> Void
+  var onChanged: (DragGesture.Value) -> Void
 
   var body: some View {
     AsyncImage(
@@ -164,13 +161,11 @@ struct AnimatedView: View {
         .gesture(
           DragGesture()
             .onChanged { value in
-              onPanUpdate(value)
+              onChanged(value)
             }
+           
             .onEnded { value in
-              onPanEnd(value)
-            }
-            .onEnded { value in
-              onPanEnd(value)
+              onEnded(value)
             }
         )
         .position(x: left, y: top)
