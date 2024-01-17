@@ -67,6 +67,8 @@ public struct SifcaWidget: View {
           onEnded: { value in
  
             let size = UIScreen.main.bounds.size
+                                    let horizontalCenter = UIScreen.main.bounds.width / 2
+
             opacity = 1.0
             showDots = true
             if !right && (startDx < size.width / 2.0) && updateDx < size.width / 2.0 {
@@ -87,7 +89,7 @@ public struct SifcaWidget: View {
           onChanged: { value in
              let size = UIScreen.main.bounds.size
            if value.startLocation == value.location {
-                             startDx = right ? (startDx + value.translation.width) : (startDx - value.translation.width)
+                             startDx = startDx + value.translation.width
                         }
             updateDx =  value.location.x
             opacity = 1.0
@@ -96,10 +98,10 @@ public struct SifcaWidget: View {
             left = left! + value.translation.width
            position = CGPoint(x: left ?? 0, y: top ?? 0)
             updateDy = top
-            if value.location.x < size.width / 2.0 {
+            if value.location.x < horizontalCenter  {
                 right = false
             }
-            if value.location.x > size.width / 2.0 {
+            if value.location.x > horizontalCenter  {
                 right = true
             }
 
