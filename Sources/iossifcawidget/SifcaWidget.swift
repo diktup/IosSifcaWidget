@@ -117,7 +117,10 @@ public struct SifcaWidget: View {
         if dialogIndex == 6 && showDots {
           SignOutDialog(dialogIndex: $dialogIndex)
         }
-      }.onAppear {
+      }
+      
+        .position(x: left ?? 0.0, y: top ?? 0.0)
+      .onAppear {
         initState()
       }
       .environmentObject(languageController)
@@ -166,7 +169,6 @@ struct AnimatedView: View {
               onPanEnd(value)
             }
         )
-        .position(x: left, y: top)
 
     }
   }
