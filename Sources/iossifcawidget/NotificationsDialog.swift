@@ -51,10 +51,15 @@ public struct NotificationsDialog: View {
                 ForEach(Array(notificationList.enumerated()), id: \.element) { _, notification in
 
                     HStack {
-                        Image("prime-bulk-app-icon")
-                            .resizable()
-                            .frame(width: 50.0, height: 50.0)
-                            .cornerRadius(16.0)
+                      
+                      AsyncImage(url: URL(string: "https://res.cloudinary.com/sifca/image/upload/v1703254262/flutter-mobile-widget/ios-app-icon.png")!) { phase in
+                            ((phase.image) ?? Image(systemName: ""))
+                              .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 50, height: 50)
+                    .clipShape(RoundedRectangle(cornerRadius: 16.0))
+                    .padding(.trailing, 8.0)
+                        }
 
                         Spacer().frame(width: 8.0)
                         VStack(alignment: .leading) {
