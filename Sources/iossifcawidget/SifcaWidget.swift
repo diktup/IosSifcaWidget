@@ -66,24 +66,22 @@ public struct SifcaWidget: View {
             opacity = 1.0
             showDots = true
           },
-          onPanEnd: { value in
-            let size = geometry.size
-            if !right && (startDx < size.width / 2.0) && updateDx < size.width / 2.0 {
-              right = false
-              left = 30.0
-            } else {
-              right = true
-              left = size.width / 1.3
-            }
-            if updateDy! < 60 {
-              top = 60
-            }
-            if updateDy! > (size.height - 220) {
-              top = size.height - 220
-            }
-               //position = CGPoint(x: left ?? 0, y: top ?? 0)
- 
-          },
+onPanEnd: { value in
+    let size = geometry.size
+    if !right && (startDx < size.width / 2.0) && updateDx < size.width / 2.0 {
+        right = false
+        left = 30.0
+    } else {
+        right = true
+        left = size.width - (opacity < 1 ? 60.0 : 80.0) - 30.0
+    }
+    if updateDy! < 60 {
+        top = 60
+    }
+    if updateDy! > (size.height - 220) {
+        top = size.height - 220
+    }
+},
           onPanUpdate: { value in
             let size = geometry.size
             updateDx = right ? value.location.x : value.location.x
@@ -98,8 +96,7 @@ public struct SifcaWidget: View {
             if value.location.x > size.width / 2.0 {
               right = true
             }
-                //position = CGPoint(x: left ?? 0, y: top ?? 0)
-
+ 
           }
         )
 
