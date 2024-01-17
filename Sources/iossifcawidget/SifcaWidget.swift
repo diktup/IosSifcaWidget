@@ -98,6 +98,8 @@ public struct SifcaWidget: View {
             left = left! + value.translation.width
            position = CGPoint(x: left ?? 0, y: top ?? 0)
             updateDy = top
+                                    let horizontalCenter = UIScreen.main.bounds.width / 2
+
             if value.location.x < horizontalCenter  {
                 right = false
             }
