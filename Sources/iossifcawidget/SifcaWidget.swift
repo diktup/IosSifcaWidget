@@ -67,7 +67,7 @@ public struct SifcaWidget: View {
             opacity = 1.0
             showDots = true
           },
-          .onPanEnd { value in
+          onPanEnd: { value in
             let size = UIScreen.main.bounds.size
 
             if !right && (startDx < size.width / 2.0) && updateDx < size.width / 2.0 {
