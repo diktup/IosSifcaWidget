@@ -85,9 +85,8 @@ public struct SifcaWidget: View {
             position = CGPoint(x: left ?? 0, y: top ?? 0)
           },
           onChanged: { value in
-             if value.startLocation == value.location {
-              startDx = value.startLocation.x
-            }
+               startDx = value.startLocation.x
+    
             updateDx = value.location.x
             opacity = 1.0
             showDots = true
