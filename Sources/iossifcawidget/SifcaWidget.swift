@@ -62,49 +62,46 @@ public struct SifcaWidget: View {
             showDots.toggle()
             opacity = 1.0
           },
-         
-          
+
           onEnded: { value in
- 
-            let size = UIScreen.main.bounds.size
-                                    let horizontalCenter = UIScreen.main.bounds.width / 2
+
+             let horizontalCenter = UIScreen.main.bounds.width / 2
 
             opacity = 1.0
             showDots = true
-            if !right && (startDx < size.width / 2.0) && updateDx < size.width / 2.0 {
-                right = false
-                left = 30.0
+            if !right && (startDx < horizontalCenter ) && updateDx < horizontalCenter {
+              right = false
+              left = 30.0
             } else {
-                right = true
-                left = size.width - (opacity < 1 ? 60.0 : 80.0) - 30.0
+              right = true
+              left = UIScreen.main.bounds.width - (opacity < 1 ? 60.0 : 80.0) - 30.0
             }
             if updateDy! < 60 {
-                top = 60
+              top = 60
             }
-            if updateDy! > (size.height - 220) {
-                top = size.height - 220
+            if updateDy! > (UIScreen.main.bounds.height - 220) {
+              top = UIScreen.main.bounds.height - 220
             }
             position = CGPoint(x: left ?? 0, y: top ?? 0)
           },
           onChanged: { value in
-             let size = UIScreen.main.bounds.size
-           if value.startLocation == value.location {
-                             startDx = startDx + value.translation.width
-                        }
-            updateDx =  value.location.x
+             if value.startLocation == value.location {
+              startDx = startDx + value.translation.width
+            }
+            updateDx = value.location.x
             opacity = 1.0
             showDots = true
             top = top! + value.translation.height
             left = left! + value.translation.width
-           position = CGPoint(x: left ?? 0, y: top ?? 0)
+            position = CGPoint(x: left ?? 0, y: top ?? 0)
             updateDy = top
-                                    let horizontalCenter = UIScreen.main.bounds.width / 2
+            let horizontalCenter = UIScreen.main.bounds.width / 2
 
-            if value.location.x < horizontalCenter  {
-                right = false
+            if value.location.x < horizontalCenter {
+              right = false
             }
-            if value.location.x > horizontalCenter  {
-                right = true
+            if value.location.x > horizontalCenter {
+              right = true
             }
 
           }
@@ -171,7 +168,7 @@ struct AnimatedView: View {
             .onChanged { value in
               onChanged(value)
             }
-           
+
             .onEnded { value in
               onEnded(value)
             }
