@@ -81,6 +81,9 @@ onPanEnd: { value in
     if updateDy! > (size.height - 220) {
         top = size.height - 220
     }
+    // Ensure the widget stays within the bounds
+    left = max(30.0, min(left!, size.width - (opacity < 1 ? 60.0 : 80.0) - 30.0))
+    top = max(60, min(top!, size.height - 220))
 },
           onPanUpdate: { value in
             let size = geometry.size
