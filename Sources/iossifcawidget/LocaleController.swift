@@ -23,7 +23,7 @@ public class Localizer {
 
   public static func localizedString(_ key: String, controller: LanguageController) -> String {
 
-    let bundle = Bundle(identifier: bundleIdentifier)
+    let bundle = Bundle(identifier: bundleIdentifier ?? "iossifcawidget")
 
     return NSLocalizedString(key, tableName: nil, bundle: bundle ?? Bundle.main, comment: "")
   }
