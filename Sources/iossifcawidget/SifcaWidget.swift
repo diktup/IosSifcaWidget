@@ -86,7 +86,7 @@ public struct SifcaWidget: View {
           },
           onChanged: { value in
              if value.startLocation == value.location {
-              startDx = value.startLocation
+              startDx = value.startLocation.x
             }
             updateDx = value.location.x
             opacity = 1.0
