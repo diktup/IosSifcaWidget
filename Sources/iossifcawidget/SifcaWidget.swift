@@ -9,23 +9,20 @@ import SwiftUI
 import SwiftUIGIF
 
 public struct SifcaWidget: View {
-  @StateObject public var animatedWidgetController: AnimatedWidgetController =
-    AnimatedWidgetController()
+  @StateObject public var animatedWidgetController: AnimatedWidgetController = AnimatedWidgetController()
   @StateObject public var languageController: LanguageController = LanguageController()
   @StateObject public var themeManager: ThemeManager = ThemeManager()
-
-  @State public var verticalCenter: CGFloat = 0
   @State public var position = CGPoint(x: 0, y: 0)
-  @State public var showDots = true
-  @State public var dialogIndex = -1
-
-  @State private var updateDx: CGFloat = 0.0
-  @State private var opacity: Double = 1.0
-  @State private var startDx: CGFloat = 0.0
-  @State private var right = true
+  @State public var verticalCenter: CGFloat = 0
   @State private var updateDy: CGFloat? = 0.0
+  @State private var updateDx: CGFloat = 0.0
+  @State private var startDx: CGFloat = 0.0
+  @State private var opacity: Double = 1.0
   @State private var left: CGFloat? = 0.0
   @State private var top: CGFloat? = 0.0
+  @State public var dialogIndex = -1
+  @State public var showDots = true
+  @State private var right = true
 
   private func initState() {
     top = UIScreen.main.bounds.size.height / 1.8
@@ -94,11 +91,11 @@ public struct SifcaWidget: View {
 
             if (left ?? 0) < horizontalCenter {
               right = false
- 
+
             }
             if (left ?? 0) > horizontalCenter {
               right = true
- 
+
             }
           }
         )
